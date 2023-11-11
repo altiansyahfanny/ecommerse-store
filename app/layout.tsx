@@ -1,17 +1,25 @@
-import './globals.css';
-import { Inter } from 'next/font/google';
+import { Urbanist } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] });
+import Footer from '@/components/footer';
+import Navbar from '@/components/navbar';
+
+import './globals.css';
+
+const font = Urbanist({ subsets: ['latin'] });
 
 export const metadata = {
-	title: 'Ecommerse Store',
+	title: 'Store',
 	description: 'Ecommerse store',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="en">
-			<body className={inter.className}>{children}</body>
+			<body className={font.className}>
+				<Navbar />
+				{children}
+				<Footer />
+			</body>
 		</html>
 	);
 }
